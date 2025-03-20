@@ -1,0 +1,22 @@
+{
+  "name": "marcus-ananta-landing-page",
+  "version": "1.0.0",
+  "description": "Personal landing page for Marcus Ananta, Santa Susana High School Student of the Year",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s .",
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "landing-page",
+    "student"
+  ],
+  "author": "Marcus Ananta",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "serve": "^14.2.1"
+  }
+} 
