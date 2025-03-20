@@ -171,6 +171,10 @@ To use a custom domain with your GitHub Pages site:
    - For subdomains (www.example.com): Add a CNAME record pointing to `[your-username].github.io`
 5. Save your changes and wait for DNS propagation
 
+## Deployment Status
+This website is deployed using GitHub Pages with custom GitHub Actions workflow.
+Last updated: March 20, 2023
+
 ## Credits
 
 - Icons: [Font Awesome](https://fontawesome.com/)
