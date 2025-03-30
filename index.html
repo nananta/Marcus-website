@@ -18,6 +18,7 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#tutoring">Tutoring</a></li>
                     <li><a href="#social-feed">Social Feed</a></li>
                     <li><a href="#journey">My Journey</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -28,7 +29,7 @@
             <div class="hero-content">
                 <h1>Marcus Ananta</h1>
                 <h2>Aspiring Law Student</h2>
-                <p>Santa Susana High School Student | Future Attorney | Social Media Creator</p>
+                <p>Santa Susana High School Student | Future Attorney | Social Media Creator | Tutor</p>
                 <div class="achievement-banner">
                     <i class="fas fa-award"></i> Santa Susana High School Student of the Year
                 </div>
@@ -54,7 +55,7 @@
                 <div class="about-text">
                     <p>Hi, I'm Marcus Ananta, a dedicated high school student from Santa Susana High School with a passion for law and justice. My journey toward becoming a law professional started when I developed an interest in how legal systems shape our society.</p>
                     <p>Through my academic pursuits and social media platforms, I share my experiences navigating high school while preparing for a future legal career. I'm committed to building a strong foundation for law school through debate club participation, mock trial competitions, and community service.</p>
-                    <p>When I'm not studying or creating content, you can find me volunteering at local legal aid clinics, participating in student government, or exploring the latest developments in law and policy.</p>
+                    <p>I also offer tutoring services in English, History, Debate, and Pre-Law topics to help other students succeed. My teaching approach focuses on building confidence and critical thinking skills.</p>
                     <p class="achievement"><i class="fas fa-award"></i> <strong>Recent Achievement:</strong> Proud to be recognized by Rotary as Santa Susana High School's Student of the Year for my academic excellence and community involvement.</p>
                 </div>
             </div>
@@ -167,6 +168,60 @@
             </div>
             <div class="load-more">
                 <button id="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="tutoring" class="tutoring-section">
+        <div class="container">
+            <h2>Tutoring Services</h2>
+            <div class="tutoring-content">
+                <div class="tutoring-intro">
+                    <p>I offer personalized one-on-one tutoring to help students excel in their studies. Whether you're looking to improve your grades, prepare for an exam, or develop specific skills, I'm here to help.</p>
+                    <p class="cta-text">Book a session through the chat assistant or contact me directly.</p>
+                </div>
+                <div class="tutoring-subjects">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>English</h3>
+                        <p>Essay writing, literature analysis, grammar, vocabulary, and creative writing.</p>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>History</h3>
+                        <p>American history, world history, historical research, and document analysis.</p>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Debate</h3>
+                        <p>Public speaking, argumentation, research skills, and competitive debate preparation.</p>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Pre-Law</h3>
+                        <p>Introduction to legal concepts, mock trial preparation, and law school admissions guidance.</p>
+                    </div>
+                </div>
+                <div class="tutoring-rates">
+                    <h3>Tutoring Rates</h3>
+                    <ul>
+                        <li><strong>Individual Sessions:</strong> $30/hour</li>
+                        <li><strong>Package of 5 Sessions:</strong> $135 ($27/hour)</li>
+                        <li><strong>Package of 10 Sessions:</strong> $250 ($25/hour)</li>
+                    </ul>
+                    <p><em>Group rates available upon request. First 15-minute consultation is free.</em></p>
+                </div>
+            </div>
+            <div class="booking-button-container">
+                <button id="open-chat-booking" class="booking-button">Book a Tutoring Session Now</button>
             </div>
         </div>
     </section>
@@ -288,7 +343,7 @@
                 <!-- Messages will be added here -->
             </div>
             <div id="chat-input">
-                <input type="text" id="user-input" placeholder="Type a message...">
+                <input type="text" id="user-input" placeholder="Type a message or book a tutoring session...">
                 <button id="send-button">
                     <i class="fas fa-paper-plane"></i>
                 </button>
@@ -298,5 +353,39 @@
 
     <script src="script.js"></script>
     <script src="chat.js"></script>
+    <script>
+        // Script to open chat for booking when clicking the booking button
+        document.getElementById('open-chat-booking').addEventListener('click', function() {
+            document.getElementById('chat-widget').classList.add('open');
+            // Add booking message to chat
+            const chatMessages = document.getElementById('chat-messages');
+            if (chatMessages.children.length === 0) {
+                // If chat is empty, add greeting first
+                const botMessage = document.createElement('div');
+                botMessage.className = 'bot-message';
+                botMessage.innerHTML = "Hi there! I'm Marcus's virtual assistant. How can I help you today?";
+                chatMessages.appendChild(botMessage);
+            }
+            
+            // Simulate user asking about booking
+            setTimeout(() => {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'user-message';
+                userMessage.textContent = "I want to book a tutoring session";
+                chatMessages.appendChild(userMessage);
+                
+                // Add slight delay for bot response
+                setTimeout(() => {
+                    const bookingMessage = document.createElement('div');
+                    bookingMessage.className = 'bot-message';
+                    bookingMessage.innerHTML = 'I\'ll help you schedule a tutoring session with Marcus. Please select one of the following subjects:<br><button class="booking-option" data-subject="English">English</button><button class="booking-option" data-subject="History">History</button><button class="booking-option" data-subject="Debate">Debate</button><button class="booking-option" data-subject="Pre-Law">Pre-Law</button>';
+                    chatMessages.appendChild(bookingMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 600);
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 300);
+        });
+    </script>
 </body>
 </html> 
